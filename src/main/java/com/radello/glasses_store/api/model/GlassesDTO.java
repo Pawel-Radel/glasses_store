@@ -15,5 +15,5 @@ public class GlassesDTO {
     int number;
     ModelDTO model;
     int quantity;
-    List<CustomerDTO> listofCustomers = new ArrayList<>();
+    CustomerDTO customer;
 }

@@ -21,15 +21,13 @@ class GlassesTest {
 
     @BeforeEach
     void setUp() {
-        customerList = new ArrayList<>();
-        customerList.add(new Customer());
-        customerList.add(new Customer());
-        glasses = new Glasses(1L,GLASSES_NUMBER, GLASSES_MODEL, GLASSES_QUANTITY, customerList);
+
+        glasses = new Glasses(1L,GLASSES_NUMBER, GLASSES_MODEL, GLASSES_QUANTITY, new Customer());
     }
 
     @Test
     void testEquals() {
-        Glasses glasses2 = new Glasses(2L, GLASSES_NUMBER, GLASSES_MODEL, 3, new ArrayList<>());
+        Glasses glasses2 = new Glasses(2L, GLASSES_NUMBER, GLASSES_MODEL, 3, new Customer());
         assertEquals(glasses,glasses2);
     }
 
@@ -57,9 +55,4 @@ class GlassesTest {
         assertEquals(GLASSES_QUANTITY, glasses.getQuantity());
     }
 
-    @Test
-    void getListofCustomers() {
-        assertNotNull(glasses.getListofCustomers());
-        assertEquals(2, glasses.getListofCustomers().size());
-    }
 }

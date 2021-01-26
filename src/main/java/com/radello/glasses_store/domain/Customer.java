@@ -21,7 +21,7 @@ public class Customer {
     String surname;
     int telephone;
     String city;
-    @ManyToMany(mappedBy = "listofCustomers")
+    @OneToMany(mappedBy = "customer")
     List<Glasses> listOfGlasses = new ArrayList<>();
 
 }

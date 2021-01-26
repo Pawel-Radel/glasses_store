@@ -24,11 +24,9 @@ public class Glasses {
     Model model;
     int quantity;
 
-    @ManyToMany
-    @JoinTable(name = "Chosen_Glasses_By_Customer",
-    joinColumns = {@JoinColumn(name = "Chosen_Glasses_ID")},
-    inverseJoinColumns = {@JoinColumn(name ="Customer_ID") })
-    List<Customer> listofCustomers = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "customer_ID")
+    Customer customer;
 
     @Override
     public boolean equals(Object o) {
