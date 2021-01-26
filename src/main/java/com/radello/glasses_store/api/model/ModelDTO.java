@@ -1,11 +1,9 @@
-package com.radello.glasses_store.domain;
+package com.radello.glasses_store.api.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-
 
 @AllArgsConstructor
-public enum Model {
+public enum ModelDTO {
 
     PRELUGIUM (30),
     M0TT0(39),
