@@ -24,4 +24,11 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     List<Glasses> listOfGlasses = new ArrayList<>();
 
+    public Customer addGlasses(Glasses glasses) {
+
+        glasses.setCustomer(this);
+        this.listOfGlasses.add(glasses);
+        return this;
+    }
+
 }
