@@ -16,12 +16,12 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long ID;
-    String name;
-    String surname;
-    int telephone;
-    String city;
+    private Long ID;
+    private String name;
+    private String surname;
+    private int telephone;
+    private String city;
     @OneToMany(mappedBy = "customer")
-    List<Glasses> listOfGlasses = new ArrayList<>();
+    private List<Glasses> listOfGlasses = new ArrayList<>();
 
 }

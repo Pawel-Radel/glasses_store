@@ -5,10 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @Data
@@ -19,14 +16,14 @@ public class Glasses {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long Id;
-    int number;
-    Model model;
-    int quantity;
+    private Long Id;
+    private int number;
+    private Model model;
+    private int quantity;
 
     @ManyToOne
     @JoinColumn(name = "customer_ID")
-    Customer customer;
+    private Customer customer;
 
     @Override
     public boolean equals(Object o) {
