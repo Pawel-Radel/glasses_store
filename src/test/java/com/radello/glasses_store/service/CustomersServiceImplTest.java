@@ -118,4 +118,16 @@ class CustomersServiceImplTest {
         verify(repository, times(1)).deleteById(anyLong());
 
     }
+
+    @Test
+    void findByCity() {
+        Customer customer3 = new Customer();
+        customer3.setCity("Warszawa");
+
+        when(repository.findAllByCityIsLike(anyString())).thenReturn(Arrays.asList(customer1, customer3));
+        List<CustomerDTO> list = service.findByCity("Warszawa");
+
+        assertEquals(2, list.size());
+        verify(repository,times(1)).findAllByCityIsLike(anyString());
+    }
 }

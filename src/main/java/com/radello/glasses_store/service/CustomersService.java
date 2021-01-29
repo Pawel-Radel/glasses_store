@@ -10,6 +10,8 @@ public interface CustomersService {
 
     CustomerDTO findById(Long id);
 
+    List<CustomerDTO> findByCity (String string);
+
     CustomerDTO saveCustomerByDTo(Long id, CustomerDTO customerDTO);
 
     CustomerDTO patchCustomer (Long id, CustomerDTO customerDTO);

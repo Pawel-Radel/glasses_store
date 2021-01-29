@@ -38,6 +38,14 @@ public class CustomersServiceImpl implements CustomersService {
         return customerDTO.orElseThrow();
     }
 
+    @Override
+    public List<CustomerDTO> findByCity(String string) {
+        return customerRepository.findAllByCityIsLike(string)
+                .stream()
+                .map(customerMapper::customerToCustomerDto)
+                .collect(Collectors.toList());
+    }
+
     public CustomerDTO saveAndReturnDTO(Customer customer) {
 
         Customer savedCustomer = customerRepository.save(customer);

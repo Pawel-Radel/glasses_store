@@ -14,12 +14,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 @Component
-public class h2Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
+public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
     private final CustomerRepository customerRepository;
     private final GlassesRepository glassesRepository;
 
-    public h2Bootstrap(CustomerRepository customerRepository, GlassesRepository glassesRepository) {
+    public Bootstrap(CustomerRepository customerRepository, GlassesRepository glassesRepository) {
         this.customerRepository = customerRepository;
         this.glassesRepository = glassesRepository;
     }
