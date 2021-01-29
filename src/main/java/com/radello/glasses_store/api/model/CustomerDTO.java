@@ -11,10 +11,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CustomerDTO {
-    Long ID;
-    String name;
-    String surname;
-    int telephone;
-    String city;
-    List<GlassesDTO> listOfGlasses = new ArrayList<>();
+    private Long ID;
+    private String name;
+    private String surname;
+    private int telephone;
+    private String city;
+    private List<GlassesDTO> listOfGlasses = new ArrayList<>();
 }
