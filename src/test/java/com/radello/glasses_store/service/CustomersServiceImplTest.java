@@ -130,4 +130,5 @@ class CustomersServiceImplTest {
         assertEquals(2, list.size());
         verify(repository,times(1)).findAllByCityIsLike(anyString());
     }
+
 }

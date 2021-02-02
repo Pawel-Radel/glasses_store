@@ -12,6 +12,8 @@ public interface CustomersService {
 
     List<CustomerDTO> findByCity (String string);
 
+    CustomerDTO createNewCustomer (CustomerDTO customerDTO);
+
     CustomerDTO saveCustomerByDTo(Long id, CustomerDTO customerDTO);
 
     CustomerDTO patchCustomer (Long id, CustomerDTO customerDTO);

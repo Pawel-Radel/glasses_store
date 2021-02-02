@@ -35,7 +35,7 @@ public class CustomersServiceImpl implements CustomersService {
     public CustomerDTO findById(Long id) {
 
         Optional<CustomerDTO> customerDTO = customerRepository.findById(id).map(customerMapper::customerToCustomerDto);
-        return customerDTO.orElseThrow();
+        return customerDTO.orElseThrow(ResourceNotFoundException::new);
     }
 
     @Override
@@ -44,6 +44,11 @@ public class CustomersServiceImpl implements CustomersService {
                 .stream()
                 .map(customerMapper::customerToCustomerDto)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public CustomerDTO createNewCustomer(CustomerDTO customerDTO) {
+        return saveAndReturnDTO(customerMapper.customerDtoToCustomer(customerDTO));
     }
 
     public CustomerDTO saveAndReturnDTO(Customer customer) {
@@ -65,27 +70,13 @@ public class CustomersServiceImpl implements CustomersService {
     @Override
     public CustomerDTO patchCustomer(Long id, CustomerDTO customerDTO) {
         Optional<Customer> customerOptional = customerRepository.findById(id);
-        if (customerOptional.isEmpty()) {
-            return customerDTO;
-        }
 
-        Customer customer = customerOptional.get();
+        Customer customer = customerOptional.orElseThrow(ResourceNotFoundException::new);
 
-        if (customerDTO.getName() != null) {
-            customer.setName(customerDTO.getName());
-        }
-
-        if (customerDTO.getSurname() != null) {
-            customer.setSurname(customerDTO.getSurname());
-        }
-
-        if (customerDTO.getCity() != null) {
-            customer.setCity(customerDTO.getCity());
-        }
-
-        if (customerDTO.getTelephone() != 0) {
-            customer.setTelephone(customerDTO.getTelephone());
-        }
+        if (customerDTO.getName() != null) customer.setName(customerDTO.getName());
+        if (customerDTO.getSurname() != null) customer.setSurname(customerDTO.getSurname());
+        if (customerDTO.getCity() != null) customer.setCity(customerDTO.getCity());
+        if (customerDTO.getTelephone() != 0) customer.setTelephone(customerDTO.getTelephone());
 
         return customerMapper.customerToCustomerDto(customerRepository.save(customer));
     }

@@ -8,9 +8,6 @@ import com.radello.glasses_store.domain.Glasses;
 import com.radello.glasses_store.domain.Model;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class GlassesMapperTest {
@@ -43,7 +40,7 @@ class GlassesMapperTest {
 
         glassesDTO = new GlassesDTO(GLASSES_ID, GLASSES_NUMBER, GLASSES_MODEL_DTO, GLASSES_QUANTITY, new CustomerDTO());
 
-        Glasses glasses = glassesMapper.glassesDtotoGlasses(glassesDTO);
+        Glasses glasses = glassesMapper.glassesDTOtoGlasses(glassesDTO);
 
         assertEquals(GLASSES_ID, glasses.getId());
         assertEquals(GLASSES_NUMBER, glasses.getNumber());

@@ -16,7 +16,7 @@ class CustomerMapperTest {
 
     Customer customer;
     CustomerDTO customerDTO;
-    List<Glasses> listOfGlasses;
+    ArrayList listOfGlasses;
     List<GlassesDTO> listOfGlassesDTO;
     private static final Long CUSTOMER_ID = 1L;
     private static final String CUSTOMER_NAME = "Pawel";

@@ -1,14 +1,17 @@
 package com.radello.glasses_store.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Objects;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -23,6 +26,7 @@ public class Glasses {
 
     @ManyToOne
     @JoinColumn(name = "customer_ID")
+    @JsonManagedReference
     private Customer customer;
 
     @Override
@@ -37,5 +41,16 @@ public class Glasses {
     @Override
     public int hashCode() {
         return Objects.hash(number, model);
+    }
+
+    @Override
+    public String toString() {
+        return "Glasses{" +
+                "Id=" + Id +
+                ", number=" + number +
+                ", model=" + model +
+                ", quantity=" + quantity +
+                ", customer=" + customer +
+                '}';
     }
 }

@@ -10,7 +10,8 @@ public interface GlassesMapper {
 
     GlassesMapper INSTANCE = Mappers.getMapper(GlassesMapper.class);
 
-    GlassesDTO glassesToGlassesDto (Glasses glasses);
+    GlassesDTO glassesToGlassesDto(Glasses glasses);
 
-    Glasses glassesDtotoGlasses (GlassesDTO glassesDTO);
+    Glasses glassesDTOtoGlasses(GlassesDTO glassesDTO);
+
 }

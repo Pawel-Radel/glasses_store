@@ -1,7 +1,5 @@
 package com.radello.glasses_store;
 
-import com.radello.glasses_store.domain.Glasses;
-import com.radello.glasses_store.domain.Model;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

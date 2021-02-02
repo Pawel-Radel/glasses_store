@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 @Component
 public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
@@ -34,46 +33,42 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
     private void loadCustomers() {
 
-        Random random = new Random();
-
-        for (Long i = 1L; i < 12; i++) {
+        for (long i = 1L; i < 12; i++) {
             createCustomer(i, "Warszawa");
         }
-        for (Long i = 12L; i < 19; i++) {
+        for (long i = 12L; i < 19; i++) {
             createCustomer(i, "Lodz");
         }
-        for (Long i = 19L; i < 28; i++) {
+        for (long i = 19L; i < 28; i++) {
             createCustomer(i, "Bialystok");
         }
-        for (Long i = 28L; i < 34; i++) {
+        for (long i = 28L; i < 34; i++) {
             createCustomer(i, "Lublin");
         }
-        for (Long i = 34L; i < 40; i++) {
+        for (long i = 34L; i < 40; i++) {
             createCustomer(i, "Poznań");
         }
     }
 
     private void createCustomer(Long i, String city) {
-        StringBuilder builderName = new StringBuilder("Name");
-        StringBuilder builderSurname = new StringBuilder("Surname");
-        Customer customer = new Customer(i, builderName.append(i).toString(), builderSurname.append(i).toString(), 896840400 + i.intValue(), city, new ArrayList<>());
+        Customer customer = new Customer(i, "Name" + i, "Surname" + i, 896840400 + i.intValue(), city, new ArrayList<>());
         customerRepository.save(customer);
     }
 
     private void loadGlasses() {
-        for (Long i = 1L; i < 200; i++) {
+        for (long i = 1L; i < 200; i++) {
             loadGlassAndLinkWithCustomer(i);
         }
-        for (Long i = 200L; i < 400; i++) {
+        for (long i = 200L; i < 400; i++) {
             loadGlassAndLinkWithCustomer(i);
         }
-        for (Long i = 400L; i < 600; i++) {
+        for (long i = 400L; i < 600; i++) {
             loadGlassAndLinkWithCustomer(i);
         }
-        for (Long i = 600L; i < 800; i++) {
+        for (long i = 600L; i < 800; i++) {
             loadGlassAndLinkWithCustomer(i);
         }
-        for (Long i = 800L; i < 1000; i++) {
+        for (long i = 800L; i < 1000; i++) {
             loadGlassAndLinkWithCustomer(i);
         }
     }

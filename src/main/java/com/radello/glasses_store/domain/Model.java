@@ -1,7 +1,6 @@
 package com.radello.glasses_store.domain;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 
 
 @AllArgsConstructor

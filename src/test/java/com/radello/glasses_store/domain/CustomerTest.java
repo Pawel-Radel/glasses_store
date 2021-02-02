@@ -48,7 +48,6 @@ class CustomerTest {
 
     @Test
     void getTelephone() {
-        assertNotNull(customer.getTelephone());
         assertEquals(CUSTOMER_TELEPHONE, customer.getTelephone());
     }
 

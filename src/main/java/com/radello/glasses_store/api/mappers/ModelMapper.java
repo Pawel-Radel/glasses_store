@@ -10,8 +10,6 @@ public interface ModelMapper {
 
         ModelMapper INSTANCE = Mappers.getMapper(ModelMapper.class);
 
-        ModelDTO modeltoModelDto (Model model);
-
-        Model modelDtotoModel (ModelDTO modelDTO);
+        ModelDTO modelToModelDTO(Model model);
 
 }
