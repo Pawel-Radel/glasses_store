@@ -2,6 +2,7 @@ package com.radello.glasses_store.service;
 
 import com.radello.glasses_store.api.mappers.CustomerMapper;
 import com.radello.glasses_store.api.mappers.GlassesMapper;
+import com.radello.glasses_store.api.mappers.ModelMapstructMapper;
 import com.radello.glasses_store.api.model.GlassesDTO;
 import com.radello.glasses_store.domain.Customer;
 import com.radello.glasses_store.domain.Glasses;
@@ -31,29 +32,17 @@ class GlassesOperationsServiceImplTest {
     GlassesDTO glassesDTO;
     @Mock
     GlassesRepository glassesRepository;
+    ModelMapstructMapper modelMapstructMapper;
 
     @BeforeEach
     void setUp() {
         glasses = new Glasses(1L, 123, Model.ASTRAL, 123, new Customer());
-        glassesOperationsService = new GlassesOperationsServiceImpl(glassesRepository, glassesMapper, customerMapper);
+        glassesOperationsService = new GlassesOperationsServiceImpl(glassesRepository, glassesMapper, customerMapper, modelMapstructMapper);
         glassesDTO = new GlassesDTO();
         glassesDTO.setQuantity(11);
         glassesDTO.setNumber(123);
     }
 
-    @Test
-    void createNewGlasses() {
-        glasses2 = new Glasses();
-        glasses2.setQuantity(glassesDTO.getQuantity());
-        glasses2.setNumber(glassesDTO.getNumber());
-
-        when(glassesRepository.save(any(Glasses.class))).thenReturn(glasses2);
-
-        GlassesDTO glassesDTO1 = glassesOperationsService.createNewGlasses(glassesDTO);
-
-        assertEquals(glassesDTO.getQuantity(), glassesDTO1.getQuantity());
-        assertEquals(glassesDTO.getNumber(), glassesDTO1.getNumber());
-    }
 
     @Test
     void saveGlassesByDTO() {

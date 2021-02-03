@@ -16,6 +16,7 @@
     <properties>
         <java.version>15</java.version>
         <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
+        <springfox-swagger-ui.version>2.9.2</springfox-swagger-ui.version>
     </properties>
     <dependencies>
         <dependency>
@@ -50,6 +51,16 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox-swagger-ui.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox-swagger-ui.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>

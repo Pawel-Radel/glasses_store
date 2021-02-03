@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ModelMapperTest {
+class ModelMapstructMapperTest {
 
     Model model = Model.M0TT0;
     ModelDTO modelDTO = ModelDTO.M0TT0;

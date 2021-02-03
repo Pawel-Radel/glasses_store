@@ -6,10 +6,12 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
-public interface ModelMapper {
+public interface ModelMapstructMapper {
 
-        ModelMapper INSTANCE = Mappers.getMapper(ModelMapper.class);
+        ModelMapstructMapper INSTANCE = Mappers.getMapper(ModelMapstructMapper.class);
 
         ModelDTO modelToModelDTO(Model model);
+
+        Model modelDTOToModel (ModelDTO modelDTO);
 
 }

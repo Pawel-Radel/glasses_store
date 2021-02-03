@@ -2,6 +2,7 @@ package com.radello.glasses_store.service;
 
 import com.radello.glasses_store.api.mappers.CustomerMapper;
 import com.radello.glasses_store.api.mappers.GlassesMapper;
+import com.radello.glasses_store.api.mappers.ModelMapstructMapper;
 import com.radello.glasses_store.api.model.GlassesDTO;
 import com.radello.glasses_store.domain.Glasses;
 import com.radello.glasses_store.repository.GlassesRepository;
@@ -15,14 +16,19 @@ public class GlassesOperationsServiceImpl implements GlassesOperationsService {
     GlassesRepository glassesRepository;
     GlassesMapper glassesMapper;
     CustomerMapper customerMapper;
+    ModelMapstructMapper modelMapstructMapper;
 
     public GlassesOperationsServiceImpl(GlassesRepository glassesRepository,
                                         GlassesMapper glassesMapper,
-                                        CustomerMapper customerMapper) {
+                                        CustomerMapper customerMapper,
+                                        ModelMapstructMapper modelMapstructMapper) {
         this.glassesRepository = glassesRepository;
         this.glassesMapper = glassesMapper;
         this.customerMapper = customerMapper;
+        this.modelMapstructMapper = modelMapstructMapper;
     }
+
+
 
     @Override
     public GlassesDTO createNewGlasses(GlassesDTO glassesDTO) {
@@ -47,9 +53,8 @@ public class GlassesOperationsServiceImpl implements GlassesOperationsService {
         if (glassesDTO.getQuantity() != 0) glasses.setQuantity(glassesDTO.getQuantity());
         if (glassesDTO.getModel() != null) glasses.setQuantity(glassesDTO.getQuantity());
         if (glassesDTO.getNumber() != 0) glasses.setNumber(glassesDTO.getNumber());
-        if (glassesDTO.getCustomer() != null)
-            glasses.setCustomer(customerMapper.customerDtoToCustomer(glassesDTO.getCustomer()));
-
+        if (glassesDTO.getCustomer() != null) glasses.setCustomer(customerMapper.customerDtoToCustomer(glassesDTO.getCustomer()));
+        if (glassesDTO.getModel() != null) glasses.setModel(modelMapstructMapper.modelDTOToModel(glassesDTO.getModel()));
         return glassesMapper.glassesToGlassesDto(glassesRepository.save(glasses));
     }
 

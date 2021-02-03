@@ -57,26 +57,26 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
     private void loadGlasses() {
         for (long i = 1L; i < 200; i++) {
-            loadGlassAndLinkWithCustomer(i);
+            loadGlassAndLinkWithCustomer(i, Model.ASTRAL);
         }
         for (long i = 200L; i < 400; i++) {
-            loadGlassAndLinkWithCustomer(i);
+            loadGlassAndLinkWithCustomer(i, Model.ELYSION);
         }
         for (long i = 400L; i < 600; i++) {
-            loadGlassAndLinkWithCustomer(i);
+            loadGlassAndLinkWithCustomer(i, Model.M0TT0);
         }
         for (long i = 600L; i < 800; i++) {
-            loadGlassAndLinkWithCustomer(i);
+            loadGlassAndLinkWithCustomer(i, Model.MOKKA);
         }
         for (long i = 800L; i < 1000; i++) {
-            loadGlassAndLinkWithCustomer(i);
+            loadGlassAndLinkWithCustomer(i, Model.PRELUGIUM);
         }
     }
 
-    private void loadGlassAndLinkWithCustomer(Long i) {
+    private void loadGlassAndLinkWithCustomer(Long i, Model model) {
         Customer customer = customerRepository.getOne(1L + (long) (Math.random() * (39L - 1L)));
 
-        Glasses glasses = new Glasses(i, i.intValue(), Model.ASTRAL, i.intValue() * 2, customer);
+        Glasses glasses = new Glasses(i, i.intValue(), model, i.intValue() * 2, customer);
 
         customer.getListOfGlasses().add(glasses);
         glassesRepository.save(glasses);

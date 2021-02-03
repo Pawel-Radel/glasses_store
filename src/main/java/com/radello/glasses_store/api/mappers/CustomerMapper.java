@@ -33,7 +33,7 @@ public interface CustomerMapper {
 
             GlassesDTO glasses1 = new GlassesDTO();
             glasses1.setId(glasses.getId());
-            glasses1.setModel(ModelMapper.INSTANCE.modelToModelDTO(glasses.getModel()));
+            glasses1.setModel(ModelMapstructMapper.INSTANCE.modelToModelDTO(glasses.getModel()));
             glasses1.setQuantity(glasses.getQuantity());
             list1.add(glasses1);
         }
