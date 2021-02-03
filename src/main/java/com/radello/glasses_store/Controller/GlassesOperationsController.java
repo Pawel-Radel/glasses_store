@@ -36,14 +36,14 @@ public class GlassesOperationsController {
     @ApiOperation(value = "Patch  Glasses", notes = "Enter data to patch  Glasses")
     @PatchMapping({"/patch/{id}"})
     @ResponseStatus(HttpStatus.OK)
-    public GlassesDTO patchCustomer(@PathVariable Long id, @RequestBody GlassesDTO glassesDTO) {
+    public GlassesDTO patchGlasses(@PathVariable Long id, @RequestBody GlassesDTO glassesDTO) {
         return glassesOperationsService.patchGlasses(id, glassesDTO);
     }
 
     @ApiOperation(value = "Delete Glasses", notes = "Enter data to delete  Glasses")
     @DeleteMapping({"/delete/{id}"})
     @ResponseStatus(HttpStatus.OK)
-    public void deleteCustomer(@PathVariable Long id) {
+    public void deleteGlasses(@PathVariable Long id) {
         glassesOperationsService.deleteGlassesByID(id);
     }
 }
