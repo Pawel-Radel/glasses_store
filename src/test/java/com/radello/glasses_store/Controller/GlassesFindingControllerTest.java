@@ -68,6 +68,7 @@ class GlassesFindingControllerTest {
         when(glassesFindingService.findAll()).thenReturn(Arrays.asList(glassesDTO, glassesDTO2));
 
         mvc.perform(get(GlassesFindingController.BASE_URL + "/all")
+                .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.glassesDTOList", hasSize(2)));
@@ -88,6 +89,7 @@ class GlassesFindingControllerTest {
         when(glassesFindingService.findByID(anyLong())).thenReturn(glasses);
 
         mvc.perform(get(GlassesFindingController.BASE_URL + "/2")
+                .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.quantity", equalTo(12)))
@@ -103,6 +105,7 @@ class GlassesFindingControllerTest {
         when(glassesFindingService.findGlassesByCustomer(anyLong())).thenReturn(Arrays.asList(glassesDTO, glassesDTO2));
 
         mvc.perform(get(GlassesFindingController.BASE_URL + "/byCustomer/1")
+                .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.glassesDTOList", hasSize(2)));
@@ -115,6 +118,7 @@ class GlassesFindingControllerTest {
         when(glassesFindingService.findBestSellers(anyLong())).thenReturn(Arrays.asList(glassesDTO, glassesDTO2));
 
         mvc.perform(get(GlassesFindingController.BASE_URL + "/bestSellers/2")
+                .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.glassesDTOList", hasSize(2)));
@@ -128,6 +132,7 @@ class GlassesFindingControllerTest {
         when(glassesFindingService.findWorstSellers(anyLong())).thenReturn(Arrays.asList(glassesDTO, glassesDTO2));
 
         mvc.perform(get(GlassesFindingController.BASE_URL + "/worstSellers/2")
+                .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.glassesDTOList", hasSize(2)));
@@ -141,6 +146,7 @@ class GlassesFindingControllerTest {
         when(glassesFindingService.findAll()).thenReturn(Arrays.asList(glassesDTO, glassesDTO2));
 
         mvc.perform(get(GlassesFindingController.BASE_URL + "/all")
+                .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.glassesDTOList", hasSize(2)));

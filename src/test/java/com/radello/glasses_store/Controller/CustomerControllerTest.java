@@ -63,6 +63,7 @@ class CustomerControllerTest extends AbstractRestControllerTest {
         verify(customersService, times(1)).findAll();
 
         mvc.perform(get("/" + CustomerController.BASE_URL + "/all")
+                .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.customers", hasSize(2)));
@@ -73,6 +74,7 @@ class CustomerControllerTest extends AbstractRestControllerTest {
         when(customersService.findById(anyLong())).thenReturn(customer1);
 
         mvc.perform(get("/" + CustomerController.BASE_URL + "/find/1")
+                .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name", equalTo("Caroline")))
@@ -89,6 +91,7 @@ class CustomerControllerTest extends AbstractRestControllerTest {
 
         when(customersService.createNewCustomer(any(CustomerDTO.class))).thenReturn(customer1);
         mvc.perform(post("/" + CustomerController.BASE_URL + "/create")
+                .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(customer1)))
                 .andExpect(status().isCreated())
@@ -107,6 +110,7 @@ class CustomerControllerTest extends AbstractRestControllerTest {
         when(customersService.saveCustomerByDTo(anyLong(), any(CustomerDTO.class))).thenReturn(customer1);
 
         mvc.perform(put("/" + CustomerController.BASE_URL + "/update/1")
+                .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(customer1)))
                 .andExpect(status().isOk())
@@ -125,6 +129,7 @@ class CustomerControllerTest extends AbstractRestControllerTest {
         when(customersService.patchCustomer(anyLong(), any(CustomerDTO.class))).thenReturn(customer1);
 
         mvc.perform(patch("/" + CustomerController.BASE_URL + "/patch/1")
+                .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(customer1)))
                 .andExpect(status().isOk())

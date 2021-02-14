@@ -50,6 +50,7 @@ class GlassesOperationsControllerTest extends AbstractRestControllerTest {
 
         when(glassesOperationsService.createNewGlasses(any(GlassesDTO.class))).thenReturn(glassesDTO);
         mvc.perform(post(GlassesOperationsController.BASE_URL + "/create")
+                .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(glassesDTO)))
                 .andExpect(status().isCreated())
@@ -66,6 +67,7 @@ class GlassesOperationsControllerTest extends AbstractRestControllerTest {
         when(glassesOperationsService.saveGlassesByDTO(anyLong(), any(GlassesDTO.class))).thenReturn(glassesDTO);
 
         mvc.perform(put(GlassesOperationsController.BASE_URL + "/update/1")
+                .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(glassesDTO)))
                 .andExpect(status().isOk())
@@ -81,6 +83,7 @@ class GlassesOperationsControllerTest extends AbstractRestControllerTest {
 
         when(glassesOperationsService.patchGlasses(anyLong(), any(GlassesDTO.class))).thenReturn(glassesDTO);
         mvc.perform(patch(GlassesOperationsController.BASE_URL + "/patch/1")
+                .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(glassesDTO)))
                 .andExpect(status().isOk())
